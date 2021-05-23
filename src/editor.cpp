@@ -1,10 +1,15 @@
 #include <editor.h>
 
 Editor::Editor(QWidget* parent)
-	: QMainWindow(parent)
+    : QMainWindow(parent)
 {
-	ui.setupUi(this);
-	loadConfig("settings.json");
+    ui.setupUi(this);
+    loadConfig("settings.json");
+
+    QComboBox elementSelection;
+    for (int i = 0; i < elements.size(); i++) {
+        ui.comboBoxElement->addItem(QString::fromStdString(elements[i].getName()));
+    }
 }
 
 void Editor::loadConfig(std::string configPath) {

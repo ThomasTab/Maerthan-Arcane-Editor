@@ -9,6 +9,7 @@ class Element
 		Element(std::string name);
 
 		void setName(std::string name);
+		std::string getName();
 		void addModifier(Modifier modifier);
 
 	private:

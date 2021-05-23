@@ -1,4 +1,5 @@
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QComboBox>
 #include <nlohmann/json.hpp>
 #include <string>
 #include <fstream>
