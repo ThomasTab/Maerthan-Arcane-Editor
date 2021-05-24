@@ -28,6 +28,7 @@ if (CMAKE_BUILD_TYPE STREQUAL "Release")
     add_executable(Editor WIN32
         "${PROJECT_SOURCE_DIR}/apps/main.cpp"
         "${PROJECT_SOURCE_DIR}/ui/editor.ui"
+        "${PROJECT_SOURCE_DIR}/ui/editor.qrc"
         "${PROJECT_SOURCE_DIR}/ui/modifierWidget.ui"
         "${PROJECT_SOURCE_DIR}/src/element.cpp"
         "${PROJECT_SOURCE_DIR}/src/modifier.cpp"
@@ -42,6 +43,7 @@ else()
     add_executable(Editor
         "${PROJECT_SOURCE_DIR}/apps/main.cpp"
         "${PROJECT_SOURCE_DIR}/ui/editor.ui"
+        "${PROJECT_SOURCE_DIR}/ui/editor.qrc"
         "${PROJECT_SOURCE_DIR}/ui/modifierWidget.ui"
         "${PROJECT_SOURCE_DIR}/src/element.cpp"
         "${PROJECT_SOURCE_DIR}/src/modifier.cpp"

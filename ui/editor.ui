@@ -6,32 +6,70 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1591</width>
-    <height>226</height>
+    <width>1150</width>
+    <height>236</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#centralwidget{
+	background-image: url(:/image/background_editor.png);
+}
+
+QWidget{
+	font: bold 20pt &quot;Monotype Corsiva&quot;;
+	color: rgb(70, 50, 255);
+}
+
+QComboBox{
+	background-color: rgb(145, 145, 145);
+}</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <widget class="QComboBox" name="comboBoxElement">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>211</width>
-      <height>41</height>
+      <x>20</x>
+      <y>40</y>
+      <width>191</width>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Monotype Corsiva</family>
+      <pointsize>20</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
     </property>
    </widget>
    <widget class="QComboBox" name="comboBoxMastery">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>60</y>
-      <width>211</width>
-      <height>41</height>
+      <x>20</x>
+      <y>90</y>
+      <width>191</width>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Monotype Corsiva</family>
+      <pointsize>20</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
     </property>
     <item>
      <property name="text">
@@ -52,10 +90,10 @@
    <widget class="QWidget" name="modifiersLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>240</x>
       <y>10</y>
-      <width>1351</width>
-      <height>161</height>
+      <width>901</width>
+      <height>221</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="modifiersLayout"/>
@@ -63,26 +101,48 @@
    <widget class="QLCDNumber" name="lcdNumberCost">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>110</y>
-      <width>211</width>
+      <x>110</x>
+      <y>150</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Monotype Corsiva</family>
+      <pointsize>20</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>140</y>
+      <width>91</width>
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Monotype Corsiva</family>
+      <pointsize>20</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Mana :</string>
+    </property>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1591</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="editor.qrc"/>
+ </resources>
  <connections/>
 </ui>

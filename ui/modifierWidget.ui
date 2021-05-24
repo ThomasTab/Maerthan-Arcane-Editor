@@ -13,13 +13,16 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QLabel" name="labelModifierName">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>10</y>
      <width>131</width>
-     <height>20</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
@@ -33,14 +36,20 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>30</y>
+     <y>40</y>
      <width>131</width>
-     <height>191</height>
+     <height>181</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayoutAttributes"/>
+   <layout class="QVBoxLayout" name="verticalLayoutAttributes">
+    <property name="leftMargin">
+     <number>45</number>
+    </property>
+   </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="modifierWidget.qrc"/>
+ </resources>
  <connections/>
 </ui>
