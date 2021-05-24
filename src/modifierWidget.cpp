@@ -4,8 +4,18 @@ ModifierWidget::ModifierWidget(Modifier modifier, int masteryLevel, QWidget* par
 	_ui.setupUi(this);
 	_modifier = modifier;
 	_masteryLevel = masteryLevel;
+	_cost = 0;
 	_ui.labelModifierName->setText(QString::fromStdString(_modifier.getName()));
+	connect(&_radioGroup, SIGNAL(buttonClicked(int)), this, SLOT(onRadioButtonClicked()));
 	refreshDisplay();
+}
+
+int ModifierWidget::getCurrentCost(){
+	return _cost;
+}
+
+Modifier ModifierWidget::getModifier(){
+	return _modifier;
 }
 
 void ModifierWidget::clearLayout(QLayout* layout) {
@@ -22,13 +32,26 @@ void ModifierWidget::clearLayout(QLayout* layout) {
 	}
 }
 
-void ModifierWidget::refreshDisplay()
-{
+void ModifierWidget::refreshDisplay() {
+	// Remove previous radiobuttons
 	clearLayout(_ui.verticalLayoutAttributes);
+	_radioButtons.clear(); // WARNING, MEMORY LEAKS AS WE DON'T DELETE POINTERS
+
 	for (int i = 0; i < _modifier.getAttributes(_masteryLevel).size(); i++) {
 		QRadioButton* attribute = new QRadioButton(QString::fromStdString(std::to_string(_modifier.getAttributes(_masteryLevel)[i])), this);
+		_radioButtons.push_back(attribute);
 		_ui.verticalLayoutAttributes->addWidget(attribute);
+		_radioGroup.addButton(attribute,i);
 	}
+
+	_radioButtons[0]->setChecked(true);
+	onRadioButtonClicked();
+}
+
+void ModifierWidget::onRadioButtonClicked() {
+	int radioButtonId = _radioGroup.checkedId();
+	_cost = _modifier.getCosts(_masteryLevel)[radioButtonId];
+	emit costChanged();
 }
 
 void ModifierWidget::onMasteryLevelChanged(int masteryLevel) {

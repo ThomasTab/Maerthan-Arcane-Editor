@@ -17,6 +17,7 @@ class Modifier
 		std::string getName();
 		std::vector<int> getAttributes(int masteryLevel);
 		std::vector<int> getCosts(int masteryLevel);
+		const std::function<int(int, int)> getCostOperator();
 
 	private:
 		std::string _name;

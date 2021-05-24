@@ -51,7 +51,7 @@ void Editor::loadConfig(std::string configPath) {
             tempElem.addModifier(modifier);
         }
 
-        elements.push_back(tempElem);
+        _elements.push_back(tempElem);
     }
 }
 
@@ -69,14 +69,28 @@ void Editor::clearLayout(QLayout* layout) {
     }
 }
 
+void Editor::onCostChanged() {
+    int finalCost = 0;
+    for (ModifierWidget* widget : _modifierWidgets) {
+        finalCost = widget->getModifier().getCostOperator()(finalCost, widget->getCurrentCost());
+    }
+    _ui.lcdNumberCost->display(QString::fromStdString(std::to_string(finalCost)));
+}
+
 void Editor::on_comboBoxElement_currentIndexChanged(int index) {
     clearLayout(_ui.modifiersLayout);
+    _modifierWidgets.clear(); // WARNING, MEMORY LEAKS AS WE DON'T DELETE POINTERS
 
-    for (int i = 0; i < _elements[index].getModifiers().size(); i++) {
+    int modifierNb = _elements[index].getModifiers().size();
+
+    for (int i = 0; i < modifierNb; i++) {
         ModifierWidget* modifierWidget = new ModifierWidget(_elements[index].getModifiers()[i], _masteryLevel);
+        _modifierWidgets.push_back(modifierWidget);
+        connect(modifierWidget, SIGNAL(costChanged()), this, SLOT(onCostChanged()));
         connect(_ui.comboBoxMastery, SIGNAL(currentIndexChanged(int)), modifierWidget, SLOT(onMasteryLevelChanged(int)));
         _ui.modifiersLayout->addWidget(modifierWidget);
     }
+    onCostChanged();
 }
 
 

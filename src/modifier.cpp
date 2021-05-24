@@ -44,3 +44,8 @@ std::vector<int> Modifier::getCosts(int masteryLevel)
 {
 	return(_costs[masteryLevel]);
 }
+
+const std::function<int(int, int)> Modifier::getCostOperator()
+{
+	return _costOperator;
+}

@@ -18,12 +18,14 @@ public:
 private:
 	Ui::EditorClass _ui;
 	std::vector<Element> _elements;
+	std::vector<ModifierWidget*> _modifierWidgets;
 	int _masteryLevel = 0;
 
 	void loadConfig(std::string configPath);
 	void clearLayout(QLayout* layout);
 
 private slots:
+	void onCostChanged();
 	void on_comboBoxElement_currentIndexChanged(int index);
 	void on_comboBoxMastery_currentIndexChanged(int index);
 };
