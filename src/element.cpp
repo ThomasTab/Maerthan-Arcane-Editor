@@ -24,3 +24,8 @@ void Element::addModifier(Modifier modifier)
 {
 	_modifiers.push_back(modifier);
 }
+
+std::vector<Modifier> Element::getModifiers()
+{
+	return _modifiers;
+}

@@ -28,24 +28,29 @@ if (CMAKE_BUILD_TYPE STREQUAL "Release")
     add_executable(Editor WIN32
         "${PROJECT_SOURCE_DIR}/apps/main.cpp"
         "${PROJECT_SOURCE_DIR}/ui/editor.ui"
+        "${PROJECT_SOURCE_DIR}/ui/modifierWidget.ui"
         "${PROJECT_SOURCE_DIR}/src/element.cpp"
         "${PROJECT_SOURCE_DIR}/src/modifier.cpp"
         "${PROJECT_SOURCE_DIR}/src/editor.cpp"
+        "${PROJECT_SOURCE_DIR}/src/modifierWidget.cpp"
         "${PROJECT_SOURCE_DIR}/include/element.h"
         "${PROJECT_SOURCE_DIR}/include/modifier.h"
         "${PROJECT_SOURCE_DIR}/include/editor.h"
-
+        "${PROJECT_SOURCE_DIR}/include/modifierWidget.h"
     )
 else()
     add_executable(Editor
         "${PROJECT_SOURCE_DIR}/apps/main.cpp"
         "${PROJECT_SOURCE_DIR}/ui/editor.ui"
+        "${PROJECT_SOURCE_DIR}/ui/modifierWidget.ui"
         "${PROJECT_SOURCE_DIR}/src/element.cpp"
         "${PROJECT_SOURCE_DIR}/src/modifier.cpp"
         "${PROJECT_SOURCE_DIR}/src/editor.cpp"
+        "${PROJECT_SOURCE_DIR}/src/modifierWidget.cpp"
         "${PROJECT_SOURCE_DIR}/include/element.h"
         "${PROJECT_SOURCE_DIR}/include/modifier.h"
         "${PROJECT_SOURCE_DIR}/include/editor.h"
+        "${PROJECT_SOURCE_DIR}/include/modifierWidget.h"
     )
 endif()
 

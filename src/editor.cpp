@@ -3,12 +3,12 @@
 Editor::Editor(QWidget* parent)
     : QMainWindow(parent)
 {
-    ui.setupUi(this);
+    _ui.setupUi(this);
     loadConfig("settings.json");
 
     QComboBox elementSelection;
-    for (int i = 0; i < elements.size(); i++) {
-        ui.comboBoxElement->addItem(QString::fromStdString(elements[i].getName()));
+    for (int i = 0; i < _elements.size(); i++) {
+        _ui.comboBoxElement->addItem(QString::fromStdString(_elements[i].getName()));
     }
 }
 
@@ -53,4 +53,33 @@ void Editor::loadConfig(std::string configPath) {
 
         elements.push_back(tempElem);
     }
+}
+
+void Editor::clearLayout(QLayout* layout) {
+    QLayoutItem* item;
+    while ((item = layout->takeAt(0))) {
+        if (item->layout()) {
+            clearLayout(item->layout());
+            delete item->layout();
+        }
+        if (item->widget()) {
+            delete item->widget();
+        }
+        delete item;
+    }
+}
+
+void Editor::on_comboBoxElement_currentIndexChanged(int index) {
+    clearLayout(_ui.modifiersLayout);
+
+    for (int i = 0; i < _elements[index].getModifiers().size(); i++) {
+        ModifierWidget* modifierWidget = new ModifierWidget(_elements[index].getModifiers()[i], _masteryLevel);
+        connect(_ui.comboBoxMastery, SIGNAL(currentIndexChanged(int)), modifierWidget, SLOT(onMasteryLevelChanged(int)));
+        _ui.modifiersLayout->addWidget(modifierWidget);
+    }
+}
+
+
+void Editor::on_comboBoxMastery_currentIndexChanged(int index) {
+    _masteryLevel = index;
 }

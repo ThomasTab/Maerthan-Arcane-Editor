@@ -12,6 +12,8 @@ class Element
 		std::string getName();
 		void addModifier(Modifier modifier);
 
+		std::vector<Modifier> getModifiers();
+
 	private:
 		std::string _name;
 		std::vector<Modifier> _modifiers;

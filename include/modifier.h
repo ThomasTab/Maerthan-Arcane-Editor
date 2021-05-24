@@ -14,6 +14,7 @@ class Modifier
 		void addCost(int masteryLevel, std::vector<int> costs);
 		void setCostOperator(const std::function<int(int, int)> operation);
 
+		std::string getName();
 		std::vector<int> getAttributes(int masteryLevel);
 		std::vector<int> getCosts(int masteryLevel);
 

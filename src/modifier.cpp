@@ -30,6 +30,11 @@ void Modifier::setCostOperator(std::function<int(int, int)> operation)
 	_costOperator = operation;
 }
 
+std::string Modifier::getName()
+{
+	return _name;
+}
+
 std::vector<int> Modifier::getAttributes(int masteryLevel)
 {
 	return(_attributes[masteryLevel]);
