@@ -6,24 +6,58 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>131</width>
+    <width>153</width>
     <height>226</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">#ModifierWidget{
+	border-image: url(:/image/background_widget.png);
+}
+
+QWidget{
+	font: 18pt &quot;Monotype Corsiva&quot;;
+	color: rgb(0, 0, 150);
+}</string>
   </property>
   <widget class="QLabel" name="labelModifierName">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>10</y>
-     <width>131</width>
-     <height>31</height>
+     <width>151</width>
+     <height>30</height>
     </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>100</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="sizeIncrement">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
    </property>
    <property name="text">
     <string>TextLabel</string>
@@ -31,13 +65,16 @@
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+   <property name="wordWrap">
+    <bool>false</bool>
+   </property>
   </widget>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>40</y>
-     <width>131</width>
+     <width>151</width>
      <height>181</height>
     </rect>
    </property>

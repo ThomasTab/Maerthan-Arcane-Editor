@@ -21,13 +21,67 @@
 	background-image: url(:/image/background_editor.png);
 }
 
-QWidget{
-	font: bold 20pt &quot;Monotype Corsiva&quot;;
-	color: rgb(70, 50, 255);
+#comboBoxElement,#comboBoxMastery,#label,#lcdNumberCost{
+	font: 20pt &quot;Monotype Corsiva&quot;;
+	color: rgb(255, 255, 150);
 }
 
-QComboBox{
-	background-color: rgb(145, 145, 145);
+QComboBox
+{
+    background-color: #4a5157;
+    padding-left: 6px;
+    color: #fff;
+    height: 20px;
+	border-radius: 4px;
+
+}
+
+
+QComboBox::disabled
+{
+	background-color: #404040;
+	color: #656565;
+	border-color: #051a39;
+
+}
+
+
+QComboBox:on
+{
+    background-color: #4a5157;
+	color: #fff;
+
+}
+
+
+QComboBox QAbstractItemView
+{
+    background-color: #4a5157;
+    color: #fff;
+    selection-background-color: #002b2b;
+	selection-color: #fff;
+    outline: 0;
+
+}
+
+
+QComboBox::drop-down
+{
+	background-color: #4a5157;
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+	border-radius: 4px;
+    width: 15px;
+
+}
+
+
+QComboBox::down-arrow
+{
+    image: url(://arrow-down.png);
+    width: 8px;
+    height: 8px;
+
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -47,9 +101,9 @@ QComboBox{
      <font>
       <family>Monotype Corsiva</family>
       <pointsize>20</pointsize>
-      <weight>75</weight>
+      <weight>50</weight>
       <italic>false</italic>
-      <bold>true</bold>
+      <bold>false</bold>
      </font>
     </property>
    </widget>
@@ -66,9 +120,9 @@ QComboBox{
      <font>
       <family>Monotype Corsiva</family>
       <pointsize>20</pointsize>
-      <weight>75</weight>
+      <weight>50</weight>
       <italic>false</italic>
-      <bold>true</bold>
+      <bold>false</bold>
      </font>
     </property>
     <item>
@@ -103,7 +157,7 @@ QComboBox{
      <rect>
       <x>110</x>
       <y>150</y>
-      <width>111</width>
+      <width>101</width>
       <height>41</height>
      </rect>
     </property>
@@ -111,10 +165,25 @@ QComboBox{
      <font>
       <family>Monotype Corsiva</family>
       <pointsize>20</pointsize>
-      <weight>75</weight>
+      <weight>50</weight>
       <italic>false</italic>
-      <bold>true</bold>
+      <bold>false</bold>
      </font>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <property name="lineWidth">
+     <number>5</number>
+    </property>
+    <property name="midLineWidth">
+     <number>0</number>
+    </property>
+    <property name="smallDecimalPoint">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLabel" name="label">
@@ -130,9 +199,9 @@ QComboBox{
      <font>
       <family>Monotype Corsiva</family>
       <pointsize>20</pointsize>
-      <weight>75</weight>
+      <weight>50</weight>
       <italic>false</italic>
-      <bold>true</bold>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">

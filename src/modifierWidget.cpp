@@ -7,6 +7,7 @@ ModifierWidget::ModifierWidget(Modifier modifier, int masteryLevel, QWidget* par
 	_cost = 0;
 	_ui.labelModifierName->setText(QString::fromStdString(_modifier.getName()));
 	connect(&_radioGroup, SIGNAL(buttonClicked(int)), this, SLOT(onRadioButtonClicked()));
+
 	refreshDisplay();
 }
 
@@ -46,6 +47,16 @@ void ModifierWidget::refreshDisplay() {
 
 	_radioButtons[0]->setChecked(true);
 	onRadioButtonClicked();
+}
+
+void ModifierWidget::paintEvent(QPaintEvent* event) {
+	QStyleOption opt;
+	opt.init(this);
+	QPainter p(this);
+	style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
+	QWidget::paintEvent(event);
+	// Resize label to center text correctly
+	_ui.labelModifierName->setFixedWidth(this->size().width());
 }
 
 void ModifierWidget::onRadioButtonClicked() {

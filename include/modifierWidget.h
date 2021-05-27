@@ -22,6 +22,7 @@ class ModifierWidget : public QWidget
 
         void clearLayout(QLayout* layout);
         void refreshDisplay();
+        void paintEvent(QPaintEvent* event);
 
 
     signals:
