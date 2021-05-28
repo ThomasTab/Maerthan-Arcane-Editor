@@ -21,7 +21,7 @@
 	background-image: url(:/image/background_editor.png);
 }
 
-#comboBoxElement,#comboBoxMastery,#label,#lcdNumberCost{
+#comboBoxElement,#comboBoxMastery,#labelMana,#labelOverload,#lcdNumberCost,#lcdNumberOverload{
 	font: 20pt &quot;Monotype Corsiva&quot;;
 	color: rgb(255, 255, 150);
 }
@@ -30,7 +30,7 @@ QComboBox
 {
     background-color: #4a5157;
     padding-left: 6px;
-    color: #fff;
+    color:  rgb(255, 255, 150);
     height: 20px;
 	border-radius: 4px;
 
@@ -49,7 +49,7 @@ QComboBox::disabled
 QComboBox:on
 {
     background-color: #4a5157;
-	color: #fff;
+	color:  rgb(255, 255, 150);
 
 }
 
@@ -57,9 +57,9 @@ QComboBox:on
 QComboBox QAbstractItemView
 {
     background-color: #4a5157;
-    color: #fff;
-    selection-background-color: #002b2b;
-	selection-color: #fff;
+    color:  rgb(255, 255, 150);
+    selection-background-color: #34383d;
+	selection-color:  rgb(255, 255, 150);
     outline: 0;
 
 }
@@ -78,7 +78,6 @@ QComboBox::drop-down
 
 QComboBox::down-arrow
 {
-    image: url(://arrow-down.png);
     width: 8px;
     height: 8px;
 
@@ -111,7 +110,7 @@ QComboBox::down-arrow
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>90</y>
+      <y>80</y>
       <width>191</width>
       <height>31</height>
      </rect>
@@ -155,9 +154,9 @@ QComboBox::down-arrow
    <widget class="QLCDNumber" name="lcdNumberCost">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>150</y>
-      <width>101</width>
+      <x>130</x>
+      <y>120</y>
+      <width>41</width>
       <height>41</height>
      </rect>
     </property>
@@ -185,14 +184,26 @@ QComboBox::down-arrow
     <property name="smallDecimalPoint">
      <bool>false</bool>
     </property>
+    <property name="digitCount">
+     <number>2</number>
+    </property>
+    <property name="mode">
+     <enum>QLCDNumber::Dec</enum>
+    </property>
+    <property name="segmentStyle">
+     <enum>QLCDNumber::Flat</enum>
+    </property>
+    <property name="intValue" stdset="0">
+     <number>99</number>
+    </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="labelMana">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>140</y>
+      <y>130</y>
       <width>91</width>
-      <height>51</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -206,6 +217,44 @@ QComboBox::down-arrow
     </property>
     <property name="text">
      <string>Mana :</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelOverload">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>170</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Surcharge :</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNumberOverload">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>160</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <property name="lineWidth">
+     <number>5</number>
+    </property>
+    <property name="digitCount">
+     <number>2</number>
+    </property>
+    <property name="segmentStyle">
+     <enum>QLCDNumber::Flat</enum>
     </property>
    </widget>
   </widget>

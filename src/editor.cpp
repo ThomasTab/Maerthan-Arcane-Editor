@@ -26,6 +26,7 @@ void Editor::loadConfig(std::string configPath) {
 
         Element tempElem;
         tempElem.setName(jsonSource["Elements"][elem].value("Name", "Unreadable"));
+        tempElem.setOverloads(jsonSource["Elements"][elem]["Overloads"].get<std::vector<int>>());
 
         // Loop over each modifier in element
         for (int mod = 0; mod < jsonSource["Elements"][elem]["Modifiers"].size(); mod++) {
@@ -69,10 +70,22 @@ void Editor::clearLayout(QLayout* layout) {
     }
 }
 
+void Editor::updateOverload() {
+    int currentElementIndex = _ui.comboBoxElement->currentIndex();
+    _overload = _elements[currentElementIndex].getOverloads()[_masteryLevel];
+    _ui.lcdNumberOverload->display(QString::fromStdString(std::to_string(_overload)));
+}
+
 void Editor::onCostChanged() {
     int finalCost = 0;
     for (ModifierWidget* widget : _modifierWidgets) {
         finalCost = widget->getModifier().getCostOperator()(finalCost, widget->getCurrentCost());
+    }
+    if (finalCost > _overload) {
+        _ui.lcdNumberCost->setStyleSheet("color: rgb(255,150,150);");
+    }
+    else {
+        _ui.lcdNumberCost->setStyleSheet("");
     }
     _ui.lcdNumberCost->display(QString::fromStdString(std::to_string(finalCost)));
 }
@@ -91,9 +104,10 @@ void Editor::on_comboBoxElement_currentIndexChanged(int index) {
         _ui.modifiersLayout->addWidget(modifierWidget);
     }
     onCostChanged();
+    updateOverload();
 }
-
 
 void Editor::on_comboBoxMastery_currentIndexChanged(int index) {
     _masteryLevel = index;
+    updateOverload();
 }

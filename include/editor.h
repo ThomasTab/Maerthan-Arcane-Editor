@@ -19,10 +19,12 @@ private:
 	Ui::EditorClass _ui;
 	std::vector<Element> _elements;
 	std::vector<ModifierWidget*> _modifierWidgets;
+	int _overload = 99;
 	int _masteryLevel = 0;
 
 	void loadConfig(std::string configPath);
 	void clearLayout(QLayout* layout);
+	void updateOverload();
 
 private slots:
 	void onCostChanged();
